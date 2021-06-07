@@ -28,24 +28,17 @@ Project File Date:  05/24/2021
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling app.c...
-src\app.c(123): warning:  #870-D: invalid multibyte character sequence
-  				printf("task1事件标志组EventFlags的�?:%d\r\n",flags_num);//bit0<--1
-src\app.c(132): warning:  #870-D: invalid multibyte character sequence
-  				printf("task1事件标志组EventFlags的�?:%d\r\n",flags_num);//3�?0011
-src\app.c(149): warning:  #870-D: invalid multibyte character sequence
-  				printf("task2事件标志组EventFlags的�?:%d\r\n",EventFlags.Flags);
-src\app.c(199): error:  #20: identifier "p_grp" is undefined
-  		OSFlagCreate (*p_grp,
-src\app.c(202): warning:  #167-D: argument of type "OS_ERR" is incompatible with parameter of type "OS_ERR *"
-  						err);
-src\app.c(58): warning:  #177-D: variable "AppTaskStartTCB"  was declared but never referenced
+src\app.c(59): warning:  #177-D: variable "AppTaskStartTCB"  was declared but never referenced
   static  OS_TCB   AppTaskStartTCB;
-src\app.c(59): warning:  #177-D: variable "AppTaskStartStk"  was declared but never referenced
+src\app.c(60): warning:  #177-D: variable "AppTaskStartStk"  was declared but never referenced
   static  CPU_STK  AppTaskStartStk[APP_CFG_TASK_START_STK_SIZE];
-src\app.c(230): warning:  #177-D: function "AppTaskStart"  was declared but never referenced
+src\app.c(247): warning:  #177-D: function "AppTaskStart"  was declared but never referenced
   static  void  AppTaskStart (void *p_arg)
-src\app.c: 7 warnings, 1 error
-".\Objects\UCOS_F407.axf" - 1 Error(s), 7 Warning(s).
+src\app.c: 3 warnings, 0 errors
+linking...
+Program Size: Code=19704 RO-data=972 RW-data=260 ZI-data=13828  
+FromELF: creating hex file...
+".\Objects\UCOS_F407.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -59,8 +52,7 @@ Package Vendor: Keil
   C:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

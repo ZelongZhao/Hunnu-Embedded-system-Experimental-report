@@ -12,9 +12,7 @@ void key_int_init(void){
 	GPIO_Init(GPIOA, &k);
 	k.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4;
 	GPIO_Init(GPIOE, &k);
-
 	//SYSCFG
-
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 	SYSCFG_EXTILineConfig( EXTI_PortSourceGPIOA,  EXTI_PinSource0);
 	SYSCFG_EXTILineConfig( EXTI_PortSourceGPIOE,  EXTI_PinSource2);

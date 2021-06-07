@@ -2017,7 +2017,7 @@ F (..\CORE\core_cm4.h)(0x581CC64D)()
 F (..\CORE\core_cmFunc.h)(0x581CC64D)()
 F (..\CORE\core_cmInstr.h)(0x581CC64D)()
 F (..\CORE\core_cmSimd.h)(0x581CC64D)()
-F (.\src\app.c)(0x60BD11F6)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\BSP -I ..\BSP\FWLIB\inc -I ..\CORE -I ..\uC-CPU -I ..\uC-LIB -I ..\uCOS-III-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\app.o --omf_browse .\objects\app.crf --depend .\objects\app.d)
+F (.\src\app.c)(0x60BE5910)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\BSP -I ..\BSP\FWLIB\inc -I ..\CORE -I ..\uC-CPU -I ..\uC-LIB -I ..\uCOS-III-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\app.o --omf_browse .\objects\app.crf --depend .\objects\app.d)
 I (.\src\includes.h)(0x5433A07E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9AD218)
@@ -2076,7 +2076,8 @@ I (..\BSP\FWLIB\inc\stm32f4xx_dac.h)(0x581CC67B)
 I (..\BSP\FWLIB\inc\stm32f4xx_dcmi.h)(0x581CC67B)
 I (..\BSP\FWLIB\inc\stm32f4xx_fsmc.h)(0x581CC67B)
 I (src\led.h)(0x60AB9499)
-I (src\usart.h)(0x60AB7146)
+I (src\usart.h)(0x60BE459A)
+I (src\os_cfg_app.h)(0x54338ACA)
 F (.\src\app_cfg.h)(0x539EB3B4)()
 F (.\src\cpu_cfg.h)(0x54338A66)()
 F (.\src\includes.h)(0x5433A07E)()
@@ -2200,7 +2201,7 @@ I (.\src\app_cfg.h)(0x539EB3B4)
 I (..\BSP\bsp.h)(0x54338BF8)
 F (.\src\led.h)(0x60AB9499)()
 F (.\src\usart.c)(0x60AB7216)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\BSP -I ..\BSP\FWLIB\inc -I ..\CORE -I ..\uC-CPU -I ..\uC-LIB -I ..\uCOS-III-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
-I (src\usart.h)(0x60AB7146)
+I (src\usart.h)(0x60BE459A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (src\stm32f4xx.h)(0x6086803D)
@@ -2237,4 +2238,4 @@ I (..\BSP\FWLIB\inc\stm32f4xx_can.h)(0x5821F050)
 I (..\BSP\FWLIB\inc\stm32f4xx_dac.h)(0x581CC67B)
 I (..\BSP\FWLIB\inc\stm32f4xx_dcmi.h)(0x581CC67B)
 I (..\BSP\FWLIB\inc\stm32f4xx_fsmc.h)(0x581CC67B)
-F (.\src\usart.h)(0x60AB7146)()
+F (.\src\usart.h)(0x60BE459A)()

@@ -38,6 +38,7 @@
 #include "led.h"
 #include "usart.h"
 #include "os.h"
+#include "os_cfg_app.h"
 
 /*
 *********************************************************************************************************
@@ -88,67 +89,81 @@ static  void  App_TaskEq0Fp         (void  *p_arg);             /* Floating Poin
 
 OS_TCB ledTcb;	//
 CPU_STK  ledStk[100];
-
+		OS_ERR err;
 OS_TCB printTcb;	//
 CPU_STK  printStk[100];
+	OS_MUTEX lock;
+	int i=0;
 void printMynote(void *no_arg){
-
-	while(1){
-		printf("this is the task one!");
-		delay(666666);
-	}
+while(1)
+{
+OSMutexPend(&lock,0,OS_OPT_PEND_BLOCKING,0,&err);
+printf("I AM TASK1! I AM TASK1++!DO INC NOW I = %d\r\n",i++);
+OSTimeDlyHMSM(0,0,1,0,OS_OPT_TIME_DLY |
+OS_OPT_TIME_HMSM_STRICT,&err);
+OSMutexPost(&lock,OS_OPT_POST_NONE,&err);
+}
 }
 
 void printMynum(void *no_arg){
-
 	while(1){
-		printf("啊啊啊啊");
-		delay(66666);
-	}
+OSMutexPend(&lock,0,OS_OPT_PEND_BLOCKING,0,&err);
+printf("I AM TASK2! I AM TASK2++!DO INC NOW I = %d\r\n",i++);
+OSTimeDlyHMSM(0,0,1,0,OS_OPT_TIME_DLY |
+OS_OPT_TIME_HMSM_STRICT,&err);
+OSMutexPost(&lock,OS_OPT_POST_NONE,&err);
 }
-		#define EV_FLAG1       (1 << 0)// 事件1 bit0  结合下面的创建：发生为1
-		#define EV_FLAG2       (1 << 1)// 事件2 bit1
+}
+
+
+		#define EV_FLAG1       (1 << 1)// 事件1 bit0  结合下面的创建：发生为1
 		OS_FLAG_GRP EventFlags;     //定义一个事件标志组 EventFlags
-		OS_ERR err;
 		OS_FLAGS flags_num;
 		void task1(void *p_arg)
 		{
 			while(1)
 			{
-				//向事件标志组EventFlags发送标志
-				flags_num=OSFlagPost((OS_FLAG_GRP*)&EventFlags,
-									 (OS_FLAGS    )EV_FLAG1,
-									 (OS_OPT      )OS_OPT_POST_FLAG_SET,
-									 (OS_ERR*     )&err);
-				printf("task1事件标志组EventFlags的值:%d\r\n",flags_num);//bit0<--1
-
-				OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);//周期性延迟2秒
-
-				//向事件标志组EventFlags发送标志
-				flags_num=OSFlagPost((OS_FLAG_GRP*)&EventFlags,
-									 (OS_FLAGS    )EV_FLAG2,//bit1
-									 (OS_OPT      )OS_OPT_POST_FLAG_SET,//1--->bit1
-									 (OS_ERR*     )&err);
-				printf("task1事件标志组EventFlags的值:%d\r\n",flags_num);//3？0011
-
-				OSTimeDlyHMSM(0,0,2,0,OS_OPT_TIME_PERIODIC,&err);
+				OSFlagPend((OS_FLAG_GRP*)&EventFlags, //等待计数事件， bit2 为 1
+(OS_FLAGS )EV_FLAG1,//bit2
+(OS_TICK )0,
+(OS_OPT )OS_OPT_PEND_FLAG_SET_ALL ,
+(CPU_TS* )0,
+(OS_ERR* )&err);
+OSMutexPend (&lock,0,OS_OPT_PEND_NON_BLOCKING,0,&err);
+printf("I AM TASK 1!I = %d\r\n",i++);
+OSMutexPost(&lock,OS_OPT_POST_NONE,&err);
+if(i>5){OSFlagPost((OS_FLAG_GRP*)&EventFlags, //发布“游戏结束”事件
+(OS_FLAGS )EV_FLAG1,
+(OS_OPT )OS_OPT_POST_FLAG_CLR,
+(OS_ERR* )&err);
+}
+OSTimeDlyHMSM(0,0,2,0, OS_OPT_TIME_DLY|OS_OPT_TIME_HMSM_STRICT,&err);
 			}
 		}
 
+		
 		void task2(void *p_arg)
 		{
 			while(1)
 			{
-				//等待事件标志组
-				OSFlagPend((OS_FLAG_GRP*)&EventFlags,
-						   (OS_FLAGS    )EV_FLAG1|EV_FLAG2,//bit1,bit0
-						   (OS_TICK     )0,
-						   (OS_OPT      )OS_OPT_PEND_FLAG_SET_ALL+OS_OPT_PEND_FLAG_CONSUME,
-						   (CPU_TS*     )0,
-						   (OS_ERR*     )&err);
-				printf("task2事件标志组EventFlags的值:%d\r\n",EventFlags.Flags);
+OSFlagPend((OS_FLAG_GRP*)&EventFlags, //等待“游戏结束”事件
+(OS_FLAGS )EV_FLAG1,//bit2
+(OS_TICK )0,
+(OS_OPT )OS_OPT_PEND_FLAG_CLR_ALL ,
+(CPU_TS* )0,
+(OS_ERR* )&err);
+OSMutexPend (&lock,0,OS_OPT_PEND_NON_BLOCKING,0,&err);
+printf("I AM TASK 2!game over \r\n");
+i=0;
+OSMutexPost(&lock,OS_OPT_POST_NONE,&err); //发布计数事件
+flags_num=OSFlagPost((OS_FLAG_GRP*)&EventFlags,
+(OS_FLAGS )EV_FLAG1,
+(OS_OPT )OS_OPT_POST_FLAG_SET,
+(OS_ERR* )&err);
+				OSTimeDlyHMSM(0,0,2,0, OS_OPT_TIME_DLY|OS_OPT_TIME_HMSM_STRICT,&err);
 			}
 		}
+		
 int main(void)
 {
     OS_ERR  err;
@@ -168,12 +183,14 @@ int main(void)
 		OSSchedRoundRobinCfg(ENABLE,
 				10,&err
 	);
+
+	OSMutexCreate (&lock,"lock",&err);
 	
     OSTaskCreate((OS_TCB       *)&ledTcb,              /* Create the start task                                */
                  (CPU_CHAR     *)"led WUWUWU",
-                 (OS_TASK_PTR   )printMynum,
+                 (OS_TASK_PTR   )task1,
                  (void         *)0u,
-                 (OS_PRIO       )5,
+                 (OS_PRIO       )2,
                  (CPU_STK      *)&ledStk[100],
                  (CPU_STK_SIZE  )10,
                  (CPU_STK_SIZE  )100,
@@ -185,7 +202,7 @@ int main(void)
 								 
 		OSTaskCreate((OS_TCB       *)&printTcb,              /* Create the start task                                */
                  (CPU_CHAR     *)"print WUWUWU",
-                 (OS_TASK_PTR   )printMynote,
+                 (OS_TASK_PTR   )task2,
                  (void         *)0u,
                  (OS_PRIO       )5,
                  (CPU_STK      *)&printStk[100],
@@ -196,13 +213,13 @@ int main(void)
                  (void         *)NULL,
                  (OS_OPT        )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR       *)&err);
-		OSFlagCreate (*p_grp,
-						"task1",
-						EV_FLAG1,
-						err);
+
 		if(err != OS_ERR_NONE){
-			printf("error!");
-		}
+			printf("error!!");
+		}OSFlagCreate(&EventFlags,
+"task1",
+EV_FLAG1,
+&err);
     OSStart(&err);                                              /* Start multitasking (i.e. give control to uC/OS-III). */
 
     (void)&err;

@@ -53,15 +53,16 @@ static void Delay(__IO uint32_t nTime);
 int main(void)
 {
 	usart_init();
-	
-	printf("hello world!");
+	led_init();
+	//printf("hello world!");
   /* Infinite loop */
   while (1)
   {
-	if(id ==0x31){
+/*	if(id ==0x31){
 		printf("111");
 		id = 0;
-	}
+	}*/
+	led_loop();
   }
 }
 
