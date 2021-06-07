@@ -1,0 +1,11 @@
+#ifndef INT_KEY_H
+#define INT_KEY_H
+
+#include "stm32f4xx.h"
+#include "led.h"
+#include "beep.h"
+
+void key_int_init(void);
+#endif
+
+
