@@ -58,6 +58,6 @@ void led_loop(void){
 	LED_ID led_n=LED_D1;
 	for(led_n=LED_D1;led_n<=LED_D4;led_n++){
 		led_one_on(led_n);
-		Delay_ms(1000);
+		Delay_ms(2000);
 	}
 }

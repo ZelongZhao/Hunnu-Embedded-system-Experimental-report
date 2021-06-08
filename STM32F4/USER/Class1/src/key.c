@@ -24,11 +24,9 @@ void key_check(void){
 	if(value_2&0x01) {
 	}else{
 				//while(GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_2)&0x01);
-		all_reset();
-		led_loop();}
-	all_reset();
+beep_on();delay(0x666666);
 }
-
+}
 void all_reset(void){
 	GPIO_ResetBits(GPIOF,GPIO_Pin_8);//重置蜂鸣器
 	GPIO_ResetBits(GPIOF, GPIO_Pin_9|GPIO_Pin_10);

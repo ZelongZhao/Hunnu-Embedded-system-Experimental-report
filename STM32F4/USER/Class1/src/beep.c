@@ -1,5 +1,5 @@
 #include "beep.h"
-int note[] = {M3,M2,M4,M3,M1,M5,M7, H1,M7,M1,M1,M1,M6,M6, ZERO,M6,M5,M5,M5,M4,M3,
+int note[] = {M3,M2,M4,M3,M1,M5,M7, H1,M7,M5,M1,M1,M1,M6,M6, ZERO,M6,M5,M5,M5,M4,M3,
 M2,M3,M4,M3,M3, M3,L4,L5,M3,M4,M5,M7,  
 H2,M7,H1,H1,ZERO,H1,
 H1,M5,M5,M6,M5,M4,M4,M2,M3,
@@ -31,7 +31,7 @@ void beep_init(int f){
 //tim13-
 	TIM_OCInitTypeDef oc;
 	oc.TIM_OCMode = TIM_OCMode_PWM2;
-	oc.TIM_Pulse = f*0.6;
+	oc.TIM_Pulse = f*0.1;
 	oc.TIM_OCPolarity = TIM_OCPolarity_High;
 	oc.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OC1Init(TIM13, &oc);
@@ -41,6 +41,18 @@ void beep_init(int f){
 } 
 void beep_on(void){
 	GPIO_SetBits(GPIOF,GPIO_Pin_8);
+}
+
+void beep_init_old(void)
+{
+RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOF, ENABLE);
+GPIO_InitTypeDef p;
+p.GPIO_Pin = GPIO_Pin_8;
+p.GPIO_Mode = GPIO_Mode_OUT;
+p.GPIO_OType = GPIO_OType_PP;
+p.GPIO_PuPd = GPIO_PuPd_NOPULL;
+p.GPIO_Speed = GPIO_Speed_50MHz;
+GPIO_Init(GPIOF,&p);
 }
 
 void music_on(void){
@@ -56,7 +68,7 @@ void music_on(void){
 		}
 		beep_init(note[x]);
 		if(flag == 1){
-			Delay_ms((uint32_t )(800*rhythm[x]));
+			Delay_ms((uint32_t )(600*rhythm[x]));
 			flag = 0;
 		}
 		else Delay_ms((uint32_t )(600*rhythm[x]));

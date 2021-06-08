@@ -48,6 +48,7 @@
 void beep_init(int);
 void beep_on(void);
 void music_on(void);
+void beep_init_old(void);
 
 #endif
 

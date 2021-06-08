@@ -54,8 +54,7 @@ void EXTI0_IRQHandler(void){
 	if (EXTI_GetFlagStatus(EXTI_Line0) == SET){
 		GPIO_SetBits(GPIOF,GPIO_Pin_8);
 		led_loop();
-		led_loop();
-		led_loop();
+
 		EXTI_ClearFlag(EXTI_Line0);
 	}
 }

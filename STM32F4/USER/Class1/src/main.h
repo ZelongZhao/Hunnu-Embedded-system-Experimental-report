@@ -37,7 +37,7 @@
 #include "systick.h"
 #include "usart.h"
 #include <stdio.h>
-
+#include "key.h"
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/

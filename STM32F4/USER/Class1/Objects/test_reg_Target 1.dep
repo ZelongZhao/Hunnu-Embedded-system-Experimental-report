@@ -1,6 +1,6 @@
 Dependencies for Project 'test_reg', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
-F (.\src\led.c)(0x6086907F)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
+F (.\src\led.c)(0x60BEE434)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
 I (src\led.h)(0x6086801E)
 I (src\stm32f4xx.h)(0x6086803D)
 I (..\..\CORE\core_cm4.h)(0x581CC64D)
@@ -75,13 +75,14 @@ I (..\..\FWLIB\inc\stm32f4xx_can.h)(0x5821F050)
 I (..\..\FWLIB\inc\stm32f4xx_dac.h)(0x581CC67B)
 I (..\..\FWLIB\inc\stm32f4xx_dcmi.h)(0x581CC67B)
 I (..\..\FWLIB\inc\stm32f4xx_fsmc.h)(0x581CC67B)
-I (src\main.h)(0x60A23705)
+I (src\main.h)(0x60BEDFA9)
 I (src\led.h)(0x6086801E)
 I (src\systick.h)(0x60868FE5)
 I (src\int_key.h)(0x607D483F)
-I (src\beep.h)(0x6099006C)
+I (src\beep.h)(0x60BEE075)
 I (src\usart.h)(0x60A250A4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (src\key.h)(0x6073FC6D)
 F (.\src\system_stm32f4xx.c)(0x6086803E)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
 I (src\stm32f4xx.h)(0x6086803D)
 I (..\..\CORE\core_cm4.h)(0x581CC64D)
@@ -123,8 +124,8 @@ F (.\src\stm32f4xx.h)(0x6086803D)()
 F (.\src\stm32f4xx_conf.h)(0x58221742)()
 F (.\src\stm32f4xx_it.h)(0x60868693)()
 F (.\src\system_stm32f4xx.h)(0x582097AB)()
-F (.\src\main.c)(0x60BE40ED)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (src\main.h)(0x60A23705)
+F (.\src\main.c)(0x60BEE55E)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (src\main.h)(0x60BEDFA9)
 I (src\stm32f4xx.h)(0x6086803D)
 I (..\..\CORE\core_cm4.h)(0x581CC64D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -163,11 +164,12 @@ I (..\..\FWLIB\inc\stm32f4xx_fsmc.h)(0x581CC67B)
 I (src\led.h)(0x6086801E)
 I (src\systick.h)(0x60868FE5)
 I (src\int_key.h)(0x607D483F)
-I (src\beep.h)(0x6099006C)
+I (src\beep.h)(0x60BEE075)
 I (src\usart.h)(0x60A250A4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
-F (.\src\main.h)(0x60A23705)()
-F (.\src\key.c)(0x607D5246)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+I (src\key.h)(0x6073FC6D)
+F (.\src\main.h)(0x60BEDFA9)()
+F (.\src\key.c)(0x60BEE25A)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
 I (src\key.h)(0x6073FC6D)
 I (src\stm32f4xx.h)(0x6086803D)
 I (..\..\CORE\core_cm4.h)(0x581CC64D)
@@ -206,10 +208,10 @@ I (..\..\FWLIB\inc\stm32f4xx_dcmi.h)(0x581CC67B)
 I (..\..\FWLIB\inc\stm32f4xx_fsmc.h)(0x581CC67B)
 I (src\led.h)(0x6086801E)
 I (src\systick.h)(0x60868FE5)
-I (src\beep.h)(0x6099006C)
+I (src\beep.h)(0x60BEE075)
 F (.\src\key.h)(0x6073FC6D)()
-F (.\src\beep.c)(0x60BE409C)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\beep.o --omf_browse .\objects\beep.crf --depend .\objects\beep.d)
-I (src\beep.h)(0x6099006C)
+F (.\src\beep.c)(0x60BEE541)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\beep.o --omf_browse .\objects\beep.crf --depend .\objects\beep.d)
+I (src\beep.h)(0x60BEE075)
 I (src\stm32f4xx.h)(0x6086803D)
 I (..\..\CORE\core_cm4.h)(0x581CC64D)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
@@ -246,8 +248,8 @@ I (..\..\FWLIB\inc\stm32f4xx_dac.h)(0x581CC67B)
 I (..\..\FWLIB\inc\stm32f4xx_dcmi.h)(0x581CC67B)
 I (..\..\FWLIB\inc\stm32f4xx_fsmc.h)(0x581CC67B)
 I (src\systick.h)(0x60868FE5)
-F (.\src\beep.h)(0x6099006C)()
-F (.\src\int_key.c)(0x60868D4E)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\int_key.o --omf_browse .\objects\int_key.crf --depend .\objects\int_key.d)
+F (.\src\beep.h)(0x60BEE075)()
+F (.\src\int_key.c)(0x60BEE33C)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\int_key.o --omf_browse .\objects\int_key.crf --depend .\objects\int_key.d)
 I (src\int_key.h)(0x607D483F)
 I (src\stm32f4xx.h)(0x6086803D)
 I (..\..\CORE\core_cm4.h)(0x581CC64D)
@@ -286,7 +288,7 @@ I (..\..\FWLIB\inc\stm32f4xx_dcmi.h)(0x581CC67B)
 I (..\..\FWLIB\inc\stm32f4xx_fsmc.h)(0x581CC67B)
 I (src\led.h)(0x6086801E)
 I (src\systick.h)(0x60868FE5)
-I (src\beep.h)(0x6099006C)
+I (src\beep.h)(0x60BEE075)
 F (.\src\int_key.h)(0x607D483F)()
 F (.\src\systick.c)(0x608690D9)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\src -I ..\..\CORE -I ..\..\FWLIB\inc-I.\RTE\_Target_1-IC:\Users\Dell\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o .\objects\systick.o --omf_browse .\objects\systick.crf --depend .\objects\systick.d)
 I (src\systick.h)(0x60868FE5)
